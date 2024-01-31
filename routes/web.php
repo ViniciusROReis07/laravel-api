@@ -22,8 +22,8 @@ Route::get('/', function () {
 
 Route::get('/setup', function(Request $request){
     $credentials = [
-        'email' => 'admin@admin.com',
-        'password' => 'password'
+        'email' => 'admin@adm.com',
+        'password' => '123'
     ];
 
 
@@ -42,7 +42,7 @@ Route::get('/setup', function(Request $request){
 
             $adminToken = $user->createToken('admin-token', ['create', 'update', 'delete']);
             $updateToken = $user->createToken('update-token', ['create', 'update', 'delete']);
-            $basicToken = $user->createToken('basic-token', ['create', 'update', 'delete']);
+            $basicToken = $user->createToken('basic-token', ['none']);
 
             return [
                 'admin' => $adminToken->plainTextToken,
